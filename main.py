@@ -1,7 +1,7 @@
 from src.data_loader import describe_dataset, load_dataset
 from src.model import find_best_k, predict, train_knn
 from src.preprocessing import scale_features, split_dataset
-
+from src.evaluate import evaluate_model
 
 def main() -> None:
     """
@@ -73,6 +73,23 @@ def main() -> None:
     print("\nFirst 10 Actual Labels")
     print("-" * 40)
     print(y_test[:10])
+
+    evaluation = evaluate_model(
+        y_test,
+        predictions,
+    )
+
+    print("\nEvaluation Results")
+    print("=" * 50)
+
+    print("\nConfusion Matrix")
+    print(evaluation["confusion_matrix"])
+
+    print("\nClassification Report")
+    print(evaluation["classification_report"])
+
+    print(f"Macro F1 Score      : {evaluation['macro_f1']:.4f}")
+    print(f"Weighted F1 Score   : {evaluation['weighted_f1']:.4f}")
 
 
 if __name__ == "__main__":
