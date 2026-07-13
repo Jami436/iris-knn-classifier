@@ -1,46 +1,56 @@
 # Iris KNN Classification Pipeline
 
-A modular machine learning project that implements the **K-Nearest Neighbors (KNN)** classification algorithm on the classic Iris dataset. This project focuses on building a complete supervised learning pipeline—from data preprocessing and feature scaling to model training, evaluation, and hyperparameter optimization—using clean, production-inspired Python code.
+A modular machine learning project implementing the **K-Nearest Neighbors (KNN)** classification algorithm on the classic Iris dataset. The project demonstrates the complete supervised machine learning workflow—from data preprocessing and feature scaling to model training, evaluation, hyperparameter tuning, and visualization.
 
-> **Status:** Work in Progress
+## Overview
 
-## Project Overview
+This project was developed as part of the **DecodeLabs AI Engineering** program to demonstrate the implementation of a complete classification pipeline following software engineering best practices.
 
-This project is being developed as part of the **DecodeLabs AI Engineering** training program. The objective is to transition from rule-based programming to data-driven machine learning by constructing a robust end-to-end classification pipeline.
+The project emphasizes:
 
-The implementation follows industry best practices by emphasizing modular architecture, type safety, reproducibility, and code readability.
+- Modular architecture
+- Type-safe Python code
+- Data preprocessing
+- Hyperparameter optimization
+- Model evaluation
+- Visualization of results
+
+---
 
 ## Features
 
-* Load and inspect the Iris dataset
-* Randomized data shuffling
-* Train-test split (70/30)
-* Feature normalization using `StandardScaler`
-* K-Nearest Neighbors (KNN) classifier
-* Hyperparameter tuning across multiple K values
-* Confusion Matrix visualization
-* Macro & Weighted F1-Score evaluation
-* Accuracy vs. K performance graph
-* Modular Python architecture
-* Strict type hints with MyPy
+- Load and inspect the Iris dataset
+- Randomized train-test split (70/30)
+- Feature scaling using `StandardScaler`
+- K-Nearest Neighbors (KNN) classifier
+- Hyperparameter tuning (K = 1–15)
+- Confusion Matrix generation
+- Classification Report
+- Macro & Weighted F1 Score
+- Accuracy vs. K visualization
+- Error Rate vs. K visualization
+- Strongly typed, modular codebase
+
+---
 
 ## Project Structure
 
 ```text
 iris-knn-classifier/
 │
-├── data/
+├── plots/
+│   ├── accuracy_vs_k.png
+│   ├── confusion_matrix.png
+│   └── error_rate_vs_k.png
 │
 ├── src/
 │   ├── data_loader.py
 │   ├── preprocessing.py
 │   ├── model.py
+│   ├── schemas.py
 │   ├── evaluate.py
 │   ├── visualize.py
 │   └── pipeline.py
-│
-├── plots/
-├── tests/
 │
 ├── main.py
 ├── requirements.txt
@@ -48,22 +58,15 @@ iris-knn-classifier/
 └── mypy.ini
 ```
 
-## Tech Stack
+---
 
-* Python 3.10+
-* NumPy
-* Pandas
-* Scikit-learn
-* Matplotlib
-* MyPy
-
-## Project Workflow
+## Machine Learning Pipeline
 
 ```
 Load Dataset
       │
       ▼
-Shuffle Data
+Dataset Inspection
       │
       ▼
 Train/Test Split
@@ -72,37 +75,81 @@ Train/Test Split
 Feature Scaling
       │
       ▼
-Train KNN Model
+Hyperparameter Tuning
       │
       ▼
-Hyperparameter Tuning
+Train Final KNN Model
       │
       ▼
 Prediction
       │
       ▼
-Performance Evaluation
+Evaluation
       │
       ▼
 Visualization
 ```
 
-## Getting Started
+---
 
-Clone the repository:
+## Technologies Used
+
+| Category | Technologies |
+|----------|--------------|
+| Language | Python 3 |
+| Data Processing | NumPy, Pandas |
+| Machine Learning | Scikit-learn |
+| Visualization | Matplotlib |
+| Static Type Checking | MyPy |
+
+---
+
+## Evaluation Metrics
+
+The trained classifier is evaluated using:
+
+- Accuracy
+- Confusion Matrix
+- Classification Report
+- Macro F1 Score
+- Weighted F1 Score
+
+These metrics provide a comprehensive assessment of model performance and generalization.
+
+---
+
+## Hyperparameter Optimization
+
+The classifier evaluates multiple neighborhood sizes (`K = 1–15`) and automatically selects the value producing the highest test accuracy.
+
+Performance is visualized using:
+
+- Accuracy vs. K
+- Error Rate vs. K
+
+---
+
+## Installation
+
+Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/<Jami436>/iris-knn-classifier.git
+```
+
+Navigate into the project
+
+```bash
 cd iris-knn-classifier
 ```
 
-Create a virtual environment:
+Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Activate the environment:
+Activate the environment
 
 **Windows**
 
@@ -110,39 +157,55 @@ Activate the environment:
 .venv\Scripts\activate
 ```
 
-**Linux/macOS**
+**Linux / macOS**
 
 ```bash
 source .venv/bin/activate
 ```
 
-Install dependencies:
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the project:
+Run the application
 
 ```bash
 python main.py
 ```
 
-## Development Status
+---
 
-This repository is currently under active development.
+## Example Output
 
-Upcoming milestones include:
+The pipeline generates:
 
-* [ ] Data loading module
-* [ ] Data preprocessing
-* [ ] Feature scaling
-* [ ] KNN model implementation
-* [ ] Hyperparameter tuning
-* [ ] Evaluation metrics
-* [ ] Visualization
-* [ ] Documentation improvements
+- Dataset statistics
+- Train/Test split information
+- Feature scaling verification
+- Optimal K value
+- Model accuracy
+- Classification Report
+- Confusion Matrix
+- Accuracy vs. K graph
+- Error Rate vs. K graph
+
+---
+
+## Future Improvements
+
+Potential enhancements include:
+
+- Cross-validation for hyperparameter tuning
+- Support for additional classification algorithms
+- Interactive visualizations
+- Command-line arguments for configuration
+- Automated unit tests
+- CI/CD workflow with GitHub Actions
+
+---
 
 ## License
 
-This project is intended for educational and learning purposes.
+This project is intended for educational purposes as part of the DecodeLabs AI Engineering program.
